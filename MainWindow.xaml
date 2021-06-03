@@ -1,0 +1,25 @@
+﻿<Window x:Class="PasteDownload.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PasteDownload"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <ScrollViewer>
+        <ListView x:Name="Downloads">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="Status: " />
+                        <TextBlock Text="{Binding Status}" FontWeight="Bold" />
+                        <TextBlock Text=", " />
+                        <TextBlock Text="Url: " />
+                        <TextBlock Text="{Binding Url}" FontWeight="Bold" />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </ScrollViewer>
+</Window>
