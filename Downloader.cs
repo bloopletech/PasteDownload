@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -23,7 +22,7 @@ namespace PasteDownload
         // Print a file with any known extension.
         public async Task Download()
         {
-            _basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            _basePath = Properties.Settings.Default.SaveLocation;
 
             _eventHandled = new TaskCompletionSource<bool>();
 
@@ -32,7 +31,7 @@ namespace PasteDownload
                 try
                 {
                     // Start a process to print a file and raise an event when done.
-                    _process.StartInfo.FileName = "youtube-dl.exe";
+                    _process.StartInfo.FileName = Properties.Settings.Default.YoutubeDlLocation;
                     _process.StartInfo.Arguments = $"--print-json {EscapeArgument(_download.Url)}";
                     _process.StartInfo.WorkingDirectory = _basePath;
                     _process.StartInfo.UseShellExecute = false;

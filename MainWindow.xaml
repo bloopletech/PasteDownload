@@ -6,20 +6,31 @@
         xmlns:local="clr-namespace:PasteDownload"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <ScrollViewer>
-        <ListView x:Name="Downloads">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <WrapPanel>
-                        <TextBlock Text="Status: " />
-                        <TextBlock Text="{Binding Status}" FontWeight="Bold" />
-                        <TextBlock Text=", " />
-                        <TextBlock Text="Url: " />
-                        <TextBlock Text="{Binding Url}" FontWeight="Bold" />
-                    </WrapPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-
-        </ListView>
-    </ScrollViewer>
+    <DockPanel>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar x:Name="toolBar">
+                <Label Content="youtube-dl Location:" VerticalAlignment="Top"/>
+                <TextBox x:Name="YoutubeDlLocation" Margin="0" TextWrapping="NoWrap" Text="{local:SettingBinding YoutubeDlLocation, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+                <Button x:Name="YoutubeDlLocationBrowse" Content="Browse..." VerticalAlignment="Top" Width="75"/>
+                <Label Content="Save Location:" VerticalAlignment="Top"/>
+                <TextBox x:Name="SaveLocation" Margin="0" TextWrapping="NoWrap" Text="{local:SettingBinding SaveLocation, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+                <Button x:Name="SaveLocationBrowse" Content="Browse..." VerticalAlignment="Top" Width="75"/>
+            </ToolBar>
+        </ToolBarTray>
+        <ScrollViewer>
+            <ListView x:Name="Downloads">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="Status: " />
+                            <TextBlock Text="{Binding Status}" FontWeight="Bold" />
+                            <TextBlock Text=", " />
+                            <TextBlock Text="Url: " />
+                            <TextBlock Text="{Binding Url}" FontWeight="Bold" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+    </DockPanel>
 </Window>
