@@ -9,12 +9,23 @@
     <DockPanel>
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar x:Name="toolBar">
-                <Label Content="youtube-dl Location:" VerticalAlignment="Top"/>
-                <TextBox x:Name="YoutubeDlLocation" Margin="0" TextWrapping="NoWrap" Text="{local:SettingBinding YoutubeDlLocation, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-                <Button x:Name="YoutubeDlLocationBrowse" Content="Browse..." VerticalAlignment="Top" Width="75"/>
-                <Label Content="Save Location:" VerticalAlignment="Top"/>
-                <TextBox x:Name="SaveLocation" Margin="0" TextWrapping="NoWrap" Text="{local:SettingBinding SaveLocation, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-                <Button x:Name="SaveLocationBrowse" Content="Browse..." VerticalAlignment="Top" Width="75"/>
+                <Label>youtube-dl Location:</Label>
+                <TextBox x:Name="YoutubeDlLocation" Text="{local:SettingBinding YoutubeDlLocation, UpdateSourceTrigger=PropertyChanged}" Width="150"/>
+                <Button x:Name="YoutubeDlLocationBrowse">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/OpenfileDialog_16x.png"/>
+                        <TextBlock Margin="3,0,0,0">Browse...</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Separator />
+                <Label>Save Location:</Label>
+                <TextBox x:Name="SaveLocation" Text="{local:SettingBinding SaveLocation, UpdateSourceTrigger=PropertyChanged}" Width="150"/>
+                <Button x:Name="SaveLocationBrowse">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/OpenFolder_16x.png"/>
+                        <TextBlock Margin="3,0,0,0">Browse...</TextBlock>
+                    </StackPanel>
+                </Button>
             </ToolBar>
         </ToolBarTray>
         <ScrollViewer>
