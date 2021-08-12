@@ -23,6 +23,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <Platforms>x64</Platforms>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>299CE724E29FE00989D8601C3865E903207CB8D7</ManifestCertificateThumbprint>
