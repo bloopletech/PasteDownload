@@ -68,7 +68,12 @@ namespace PasteDownload
             var download = ((FrameworkElement)e.OriginalSource).DataContext as Download;
             if(download == null) return;
 
-            System.Diagnostics.Process.Start(download.Path);
+            using (var process = new System.Diagnostics.Process())
+            {
+                process.StartInfo.FileName = download.Path;
+                process.StartInfo.UseShellExecute = true;
+                process.Start();
+            }
         }
 
         private bool alreadyDownloading(Download other)
